@@ -74,7 +74,7 @@
         },
 
         props: {
-            data: {default: () => [], type: [Array, Function, Object]},
+            data: {default: () => [], type: [Array, Function]},
 
             showFilter: { default: true },
             showCaption: { default: true },
