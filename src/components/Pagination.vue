@@ -21,29 +21,33 @@
 
         computed: {
             pages() {
-                return this.pagination.last_page === undefined
+                return this.pagination.totalPages === undefined
                     ? []
-                    : range(1, this.pagination.last_page + 1);
+                    : range(1, this.pagination.totalPages + 1);
             },
 
             shouldShowPagination() {
-                if (this.pagination.last_page === undefined) {
+                if (this.pagination.totalPages === undefined) {
                     return false;
                 }
 
-                return this.pagination.last_page > 1;
+                if (this.pagination.count === 0) {
+                    return false;
+                }
+
+                return this.pagination.totalPages > 1;
             },
         },
 
         methods: {
             isActive(page) {
-                const currentPage = this.pagination.current_page || 1;
+                const currentPage = this.pagination.currentPage || 1;
 
                 return currentPage === page;
             },
 
             pageClicked(page) {
-                if (this.pagination.current_page === page) {
+                if (this.pagination.currentPage === page) {
                     return;
                 }
 
