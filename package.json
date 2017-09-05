@@ -1,7 +1,7 @@
 {
-  "name": "vue-table-component",
-  "version": "1.4.3",
-  "description": "A straightforward Vue component to filter and sort tables",
+  "name": "table-component",
+  "version": "1",
+  "description": "A copy of Spatie's straightforward Vue component to filter and sort tables",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
   "scripts": {
@@ -14,17 +14,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/spatie/vue-table-component.git"
+    "url": "https://github.com/olitaylor/vue-table-component"
   },
-  "keywords": [
-    "spatie"
-  ],
-  "author": "Freek Van der Herten",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/spatie/vue-table-component/issues"
-  },
-  "homepage": "https://github.com/spatie/vue-table-component",
   "peerDependencies": {
     "moment": "^2.18.1",
     "vue": "^2.3.0"
