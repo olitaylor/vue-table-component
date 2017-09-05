@@ -16,9 +16,6 @@
 
         <div class="table-component__table-wrapper table-responsive">
             <table :class="fullTableClass">
-                <caption v-if="showCaption" class="table-component__table__caption" role="alert" aria-live="polite">
-                    {{ ariaCaption }}
-                </caption>
                 <thead>
                 <tr class="bg-blue">
                     <table-column-header

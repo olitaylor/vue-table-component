@@ -1,11 +1,13 @@
 <template>
-    <nav v-if="shouldShowPagination" class="panel-body text-center">
+<div v-if="shouldShowPagination" class="panel-body text-center">
+    <nav class="pagination pagination-flat pagination-sm twbs-visible-pages pull-right">
         <ul class="pagination pagination-flat pagination-sm twbs-visible-pages" v-if="pagination.totalPages > 0">
             <li :class="{ disabled: pagination.totalPages === 1 }"><a href="#" @click.prevent="pageClicked(pagination.currentPage - 1)">&lsaquo;</a></li>
             <li v-for="p in numbers" :class="{ active: p === pagination.currentPage }"><a href="#" @click="pageClicked(p)">{{ p }}</a></li>
             <li :class="{ disabled: pagination.currentPage === pagination.totalPages }"><a href="#" @click.prevent="pageClicked(pagination.currentPage + 1)">&rsaquo;</a></li>
 	    </ul>
     </nav>
+</div>
 </template>
 
 <script>

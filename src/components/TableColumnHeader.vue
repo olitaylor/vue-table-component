@@ -1,6 +1,5 @@
 <template>
     <th
-        @click="clicked"
         :class="headerClass"
         role="columnheader"
         scope="col"
