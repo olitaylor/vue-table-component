@@ -1,7 +1,8 @@
 {
-  "name": "table-component",
+  "name": "vue-table-sps",
   "version": "1.0.0",
   "description": "A copy of Spatie's straightforward Vue component to filter and sort tables",
+  "author": "Oliver Taylor <olivertaylor18@hotmail.co.uk>",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
   "scripts": {

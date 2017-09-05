@@ -21,13 +21,13 @@
 
         computed: {
             pages() {
-                return this.pagination.totalPages === undefined
+                return this.last_page === undefined
                     ? []
-                    : range(1, this.pagination.totalPages + 1);
+                    : range(1, this.last_page + 1);
             },
 
             shouldShowPagination() {
-                if (this.pagination.totalPages === undefined) {
+                if (this.last_page === undefined) {
                     return false;
                 }
 
@@ -35,19 +35,19 @@
                     return false;
                 }
 
-                return this.pagination.totalPages > 1;
+                return this.last_page > 1;
             },
         },
 
         methods: {
             isActive(page) {
-                const currentPage = this.pagination.currentPage || 1;
+                const currentPage = this.current_page || 1;
 
                 return currentPage === page;
             },
 
             pageClicked(page) {
-                if (this.pagination.currentPage === page) {
+                if (this.current_page === page) {
                     return;
                 }
 
