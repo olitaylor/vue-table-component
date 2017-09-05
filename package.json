@@ -1,6 +1,6 @@
 {
   "name": "table-component",
-  "version": "1",
+  "version": "1.0.0",
   "description": "A copy of Spatie's straightforward Vue component to filter and sort tables",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
