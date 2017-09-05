@@ -42,7 +42,7 @@
                     numbers.push(tmp);
                 }
                 return numbers;
-            }
+            },
 
             shouldShowPagination() {
                 if (this.pagination.totalPages === undefined) {
