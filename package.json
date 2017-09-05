@@ -1,6 +1,6 @@
 {
   "name": "vue-table-sps",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A copy of Spatie's straightforward Vue component to filter and sort tables",
   "author": "Oliver Taylor <olivertaylor18@hotmail.co.uk>",
   "main": "dist/index.js",
@@ -47,19 +47,5 @@
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2",
     "webpack-merge": "^4.1.0"
-  },
-  "jest": {
-    "testRegex": "test.js$",
-    "moduleFileExtensions": [
-      "js",
-      "vue"
-    ],
-    "snapshotSerializers": [
-      "<rootDir>/__tests__/html-serializer"
-    ],
-    "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor"
-    }
   }
 }

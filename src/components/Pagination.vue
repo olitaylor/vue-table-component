@@ -1,10 +1,10 @@
 <template>
     <nav v-if="shouldShowPagination">
-        <ul class="pagination justify-content-center">
-            <li class="page-item" :class="{ active: isActive(page) }" v-for="page in pages">
-                <a class="page-link" @click="pageClicked(page)">{{ page }}</a>
-            </li>
-        </ul>
+        <ul class="pagination pagination-flat pagination-sm twbs-visible-pages" v-if="itemsCount > 0">
+            <li :class="{ disabled: pagination.totalPages === 1 }"><a href="#" v-on:click.prevent="pageClicked(pagination.currentPage - 1)">&lsaquo;</a></li>
+            <li v-for="p in numbers" :class="{ active: p === pagination.currentPage }"><a href="#" @click="pageClicked(p)">{{ p }}</a></li>
+            <li :class="{ disabled: pagination.currentPage === pagination.totalPages }"><a href="#" v-on:click.prevent="pageClicked(pagination.currentPage + 1)">&rsaquo;</a></li>
+	    </ul>
     </nav>
 </template>
 
@@ -20,11 +20,29 @@
         },
 
         computed: {
-            pages() {
-                return this.pagination.totalPages === undefined
-                    ? []
-                    : range(1, this.pagination.totalPages + 1);
-            },
+            numbers() {
+                let numbers = [];
+                let from = this.pagination.currentPage - 2;
+                let to = this.pagination.currentPage + 2
+                if(from < 1) {
+                    from = 1;
+                }
+                if(to > this.pagination.totalPages) {
+                    to = this.pagination.totalPages;
+                }
+                let m = -(to - from - 4);
+                if(m > 0) {
+                    if(from > 1) {
+                        from = from - m > 0 ? from - m : 1;
+                    } else if(to < this.pagination.totalPages) {
+                        to = to + m > this.pagination.totalPages ? this.pagination.totalPages : to + m;
+                    }
+                }
+                for(let tmp = from; tmp <= to; tmp++) {
+                    numbers.push(tmp);
+                }
+                return numbers;
+            }
 
             shouldShowPagination() {
                 if (this.pagination.totalPages === undefined) {
@@ -40,18 +58,10 @@
         },
 
         methods: {
-            isActive(page) {
-                const currentPage = this.pagination.currentPage || 1;
-
-                return currentPage === page;
-            },
-
             pageClicked(page) {
-                if (this.pagination.currentPage === page) {
-                    return;
+                if(page > 0 && page <= this.pagination.totalPages) {
+                    this.$emit('pageChange', page)
                 }
-
-                this.$emit('pageChange', page);
             },
         },
     };
